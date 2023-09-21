@@ -27,7 +27,7 @@ api.getDetali=(pokemon)=>{
 }
 
 // dentro do parentese é o parametro
-api.getApi=(offset=0,limit=5 )=>{
+api.getApi=(offset=0,limit=9 )=>{
 //chamando a api de 0 a 10 elemento na pagina
 const url=`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
