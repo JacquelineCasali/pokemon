@@ -1,9 +1,18 @@
 
 const pokemonList = document.getElementById("pokemonList")
+const load =document.getElementById("load")
+const limit=9
+let offset=0
 // convertendo o html em lista dinamica
-function convertPokemon(pokemon){
-    //type color
-    return `   <li class="pokemon ${pokemon.type}">
+
+
+
+
+function carregarpaginas(offset,limit){
+ // requisição com função calback
+api.getApi(offset,limit).then((pokemons=[])=> {
+   const newHtml=pokemons.map((pokemon)=>
+   `   <li class="pokemon ${pokemon.type}">
     <span class="number">#${pokemon.number}</span>
     <span class="name">${pokemon.name}</span>
 
@@ -16,13 +25,20 @@ function convertPokemon(pokemon){
              alt="${pokemon.name}">
     </div>
 </li>`
+   
+   
+   
+   ).join("")
+    // tira a virgula no join
+    //mostra na tela 
+    pokemonList.innerHTML+=newHtml
+    console.log(pokemons)
+    })
 }
 
-
-// requisição com função calback
-api.getApi().then((pokemons=[])=> {
-// tira a virgula no join
-//mostra na tela 
-pokemonList.innerHTML+=pokemons.map(convertPokemon).join("")
-// console.log(pokemons)
+carregarpaginas(offset,limit)
+load.addEventListener('click',()=>{
+    offset+=limit
+    
+    carregarpaginas(offset,limit)
 })

@@ -153,7 +153,25 @@ margin-bottom: 0.25rem ;
    height: 90px;
         }
 
+/* botao  */
 
+.pagina{
+    display: flex;
+    justify-content: center;
+   padding: 1rem;
+   
+}
+
+.pagina button{
+    padding: 0.65rem .6rem;
+    margin: .25rem 0 ;
+    font-size: .8rem;
+    border: none;
+    border-radius: 1rem;
+    color:#fff;
+    background-color:#6c79db ;
+    cursor:pointer
+}
         @media screen and (min-width: 576px){
                   
             .pokemons{
